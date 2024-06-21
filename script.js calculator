@@ -1,11 +1,18 @@
-import React from 'react';
-import Calculator from './Calculator';
-const App = () => {
-return (
-<div className="App">
-<Calculator />
-</div>
-);
+function appendValue(value) {
+    document.getElementById('input').value += value;
 }
 
-export default App;
+function clearInput() {
+    document.getElementById('input').value = '';
+    document.getElementById('result').innerText = '';
+}
+
+function calculateResult() {
+    try {
+        const input = document.getElementById('input').value;
+        const result = eval(input);
+        document.getElementById('result').innerText = result;
+    } catch (error) {
+        document.getElementById('result').innerText = 'Error';
+    }
+}
